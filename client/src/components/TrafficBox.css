@@ -1,0 +1,13 @@
+.traffic-box {
+  background: #fff;
+  padding: 18px;
+  margin-top: 18px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+  max-width: 720px;
+}
+
+.traffic-box h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}

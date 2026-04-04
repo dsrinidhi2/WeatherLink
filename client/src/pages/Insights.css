@@ -1,0 +1,90 @@
+.insights-root {
+  padding: 30px;
+  color: var(--text-color, white);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.light .insights-root {
+  color: #1a1a1a;
+}
+
+/* SEARCH ROW */
+.search-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.search-row input {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  width: 250px;
+  background: rgba(255,255,255,0.15);
+  color: var(--text-color, white);
+}
+
+.light .search-row input {
+  background: #f3f3f3;
+  color: #1a1a1a;
+}
+
+.search-row button {
+  background: #4b6fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* GRID */
+.insights-grid {
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+}
+
+/* CARD */
+.card {
+  background: rgba(255, 255, 255, 0.10);
+  padding: 22px;
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: 0.25s;
+}
+
+.light .card {
+  background: white;
+  border: 1px solid #ddd;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.light .card:hover {
+  background: #f7f7f7;
+}
+
+/* HEADINGS */
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text-color, white);
+}
+
+.light .card h2 {
+  color: #1a1a1a;
+}
+
+/* ERROR */
+.err {
+  color: #ff5c5c;
+}

@@ -1,0 +1,47 @@
+.weekly-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.weekly-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.weekly-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.week-card {
+  min-width: 120px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  padding: 12px;
+  border-radius: 14px;
+  color: white;
+  text-align: center;
+}
+
+.week-day {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.week-temps {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.week-temps .max {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.week-temps .min {
+  font-size: 14px;
+  opacity: 0.8;
+}

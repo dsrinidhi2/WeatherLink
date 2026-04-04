@@ -1,0 +1,14 @@
+/* App.css */
+.app-root { min-height:100vh; }
+main { padding-top: 10px; }
+.page-wrapper { max-width:1200px; margin:0 auto; }
+/* GLOBAL HEADING FIX */
+h1, h2, h3 {
+  color: var(--text);
+}
+
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3 {
+  color: #1a1a1a !important;
+}

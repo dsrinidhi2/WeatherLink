@@ -1,0 +1,4 @@
+.sk-card, .sk-detail {
+  height:80px; border-radius:12px; background: linear-gradient(90deg,#1b2230,#0e1419); opacity:0.4;
+  margin-bottom:12px;
+}

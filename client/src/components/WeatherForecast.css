@@ -1,0 +1,24 @@
+.weekly-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: none;
+}
+
+.weekly-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.week-item {
+  min-width: 90px;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 12px;
+  border-radius: 14px;
+  text-align: center;
+  backdrop-filter: blur(3px); /* reduced blur */
+}
+
+.week-emoji {
+  font-size: 30px;
+}

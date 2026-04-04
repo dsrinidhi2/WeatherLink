@@ -1,0 +1,89 @@
+/* --- existing rules kept --- */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 120;
+  background: rgba(6,12,18,0.65);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.nav-inner {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 28px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.logo { font-weight:800; font-size:18px; color:#fff; display:flex; align-items:center; gap:8px; }
+.logo-text { font-weight:800; margin-left:6px; }
+.nav-right { display:flex; gap:18px; align-items:center; }
+.nav-link {
+  color: rgba(255,255,255,0.8);
+  text-decoration:none;
+  padding:8px 12px;
+  border-radius:8px;
+  transition: all .18s;
+}
+.nav-link:hover { background: rgba(255,255,255,0.03); color:#fff; transform: translateY(-1px); }
+.nav-link.active { background: rgba(255,255,255,0.06); color:#fff; box-shadow: 0 6px 18px rgba(0,0,0,0.4); }
+
+/* -------------------------
+   NEW: notify badge + theme
+   ------------------------- */
+
+.notify-icon { position: relative; display: inline-flex; align-items: center; gap: 8px; }
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: #ff3b30;
+  color: white;
+  font-size: 11px;
+  padding: 3px 6px;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* theme toggle button */
+.theme-btn {
+  border: none;
+  background: transparent;
+  padding: 6px 8px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* small tweaks */
+.logout-btn {
+  margin-left: 8px;
+  background: rgba(255,255,255,0.06);
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+/* -------------------------
+   THEME VARIABLES (root + light)
+   ------------------------- */
+
+:root {
+  --bg: #071018;
+  --panel: rgba(255,255,255,0.06);
+  --text: rgba(255,255,255,0.9);
+  --muted: rgba(255,255,255,0.7);
+  --accent: #3b82f6;
+}
+
+[data-theme="light"] {
+  --bg: #ffffff;
+  --panel: rgba(6,12,18,0.03);
+  --text: #111827;
+  --muted: rgba(17,24,39,0.6);
+  --accent: #2563eb;
+}
+
+/* Example usage for pages: (your page CSS can use these variables)
+body { background: var(--bg); color: var(--text); }
+*/

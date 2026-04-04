@@ -1,0 +1,31 @@
+/* index.css */
+:root {
+  --bg: #07121a;
+  --muted: #9fb0bd;
+}
+* { box-sizing: border-box; }
+html,body,#root { height:100%; margin:0; font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); color:#fff; }
+main { min-height: calc(100vh - 64px); }
+a { color:inherit; }
+button { cursor:pointer; font-family:inherit; }
+input { font-family:inherit; }
+/* FORCE CLEAN EMOJI RENDERING */
+.emoji-font,
+.hour-emoji,
+.week-emoji,
+.emoji-large {
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji",
+    sans-serif !important;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+/* small helpers used above */
+.muted { color: rgba(255,255,255,0.7); }
+.small { font-size: 12px; }
+.btn { background:#3b82f6; color:white; padding:8px 12px; border-radius:8px; border:none; cursor:pointer; }
+.btn-small { background:#2b6df6; color:white; padding:6px 8px; border-radius:6px; border:none; font-size:12px; }
+.cc-section { display:flex; gap:20px; }
+.cc-left, .cc-right { flex:1; background:rgba(255,255,255,0.03); padding:16px; border-radius:10px; }
+.cc-list, .alerts-list { list-style:none; margin:12px 0 0; padding:0; }
+.cc-list li, .alerts-list li { display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.03); }
+.actions button { margin-left:8px; }

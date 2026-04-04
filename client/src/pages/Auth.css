@@ -1,0 +1,96 @@
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.auth-card {
+  background: rgba(255,255,255,0.08);
+  padding: 35px;
+  border-radius: 14px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  color: white;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.auth-card h2 {
+  margin-bottom: 10px;
+  font-size: 26px;
+}
+
+.auth-card input {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.18);
+  color: white;
+}
+
+.auth-card button {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #3b82f6;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.auth-card button:hover {
+  background: #2563eb;
+}
+
+.auth-footer {
+  margin-top: 5px;
+  color: #ccc;
+}
+
+.auth-footer a {
+  color: #60a5ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+/* makes card bigger */
+.wider-auth {
+  width: 420px !important;
+  padding: 40px !important;
+}
+
+/* title spacing */
+.auth-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* spacing between inputs */
+.auth-form input {
+  margin-bottom: 14px;
+  font-size: 1rem;
+}
+
+/* button improvement */
+.auth-btn {
+  margin-top: 10px;
+  width: 100%;
+  font-size: 1rem;
+}
+
+/* "switch" link spacing */
+.auth-switch {
+  margin-top: 15px;
+  text-align: center;
+  opacity: 0.9;
+}

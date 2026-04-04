@@ -1,0 +1,90 @@
+/* ROOT */
+.news-page {
+  padding: 40px;
+  color: var(--text-color, white);
+}
+
+/* LIGHT MODE */
+.light .news-page {
+  color: #1a1a1a;
+}
+
+/* SEARCH BOX */
+.search-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.search-box input {
+  width: 250px;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.15);
+  color: var(--text-color, white);
+  border: none;
+}
+
+.light .search-box input {
+  background: #f1f1f1;
+  color: #1a1a1a;
+}
+
+.search-box button {
+  background: #3687ff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+}
+
+/* NO NEWS TEXT */
+.no-news {
+  margin-top: 30px;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* GRID */
+.news-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.news-card {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+}
+
+.light .news-card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+}
+
+.news-card a {
+  color: #4aa3ff;
+}
+
+.date {
+  color: var(--muted, #cccccc);
+  margin-bottom: 10px;
+}
+
+.light .date {
+  color: #666;
+}
+
+.desc {
+  margin-bottom: 10px;
+  color: var(--text-color, white);
+}
+
+.light .desc {
+  color: #1a1a1a;
+}

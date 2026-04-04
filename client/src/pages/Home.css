@@ -1,0 +1,108 @@
+/* PAGE CENTERING */
+.home-root {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  background-size: cover;
+  animation: fadeBg 6s ease-in-out infinite alternate;
+}
+
+/* HERO CARD */
+.home-card {
+  width: 550px;
+  padding: 40px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+
+  text-align: center;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* TITLE */
+.home-title {
+  font-size: 2.6rem;
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* SUBTITLE */
+.home-sub {
+  font-size: 1.1rem;
+  color: #e2e8f0;
+  margin-bottom: 25px;
+}
+
+/* BUTTON WRAPPER */
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* PRIMARY BUTTON */
+.btn-primary {
+  padding: 12px 22px;
+  background: #3b82f6;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-3px);
+}
+
+/* SECONDARY BUTTON */
+.btn-secondary {
+  padding: 12px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+
+  background: transparent;
+  border: 2px solid #93c5fd;
+  color: #93c5fd;
+  transition: 0.2s;
+}
+
+.btn-secondary:hover {
+  background: rgba(147, 197, 253, 0.2);
+  transform: translateY(-3px);
+}
+
+/* ANIMATIONS */
+@keyframes fadeBg {
+  0% {
+    filter: brightness(1);
+  }
+  100% {
+    filter: brightness(1.2);
+  }
+}
+
+.animate-fade {
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

@@ -1,0 +1,112 @@
+.fav-box {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(6px);
+}
+
+/* LIGHT MODE */
+.light .fav-box {
+  background: #ffffff;
+  border: 1px solid #ddd;
+}
+
+.fav-box h3 {
+  margin: 0 0 10px 0;
+  color: var(--text-color, white);
+  font-size: 18px;
+}
+
+.light .fav-box h3 {
+  color: #1a1a1a;
+}
+
+.fav-add {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.fav-add input {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.15);
+  color: var(--text-color, white);
+}
+
+.light .fav-add input {
+  background: #f2f2f2;
+  color: #1a1a1a;
+}
+
+.fav-add button {
+  background: #ffca28;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.fav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fav-item {
+  width: 100%;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-color, white);
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.light .fav-item {
+  background: #f2f2f2;
+  color: #1a1a1a;
+}
+
+.fav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.fav-row:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.light .fav-row:hover {
+  background: #e8e8e8;
+}
+
+.delete-icon {
+  opacity: 0;
+  transition: opacity 0.2s;
+  background: none;
+  border: none;
+  color: #f87171;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.fav-row:hover .delete-icon {
+  opacity: 1;
+}
+
+/* FIX faded page heading */
+.fav-page-heading {
+  padding-top: 90px;
+  color: var(--text) !important;
+  font-size: 28px;
+  font-weight: 700;
+}

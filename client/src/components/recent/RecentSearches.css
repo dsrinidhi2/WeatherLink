@@ -1,0 +1,82 @@
+.recent-box {
+  padding: 12px;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+}
+
+/* LIGHT MODE */
+.light .recent-box {
+  background: #ffffff;
+  border: 1px solid #ddd;
+}
+
+.recent-box h3 {
+  margin: 0 0 10px 0;
+  color: var(--text-color, white);
+  font-size: 18px;
+}
+
+.light .recent-box h3 {
+  color: #1a1a1a;
+}
+
+.recent-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recent-item {
+  width: 100%;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-color, white);
+  margin-bottom: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.light .recent-item {
+  background: #f2f2f2;
+  color: #1a1a1a;
+}
+
+.recent-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.recent-row:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.light .recent-row:hover {
+  background: #e8e8e8;
+}
+
+.delete-icon {
+  opacity: 0;
+  background: none;
+  border: none;
+  color: #f87171;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.recent-row:hover .delete-icon {
+  opacity: 1;
+}
+
+/* FIX faded page heading */
+.recent-page-heading {
+  padding-top: 90px;
+  color: var(--text) !important;
+  font-size: 28px;
+  font-weight: 700;
+}

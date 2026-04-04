@@ -1,0 +1,41 @@
+.hourly-container {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px 0;
+  gap: 12px;
+  scrollbar-width: thin;
+}
+
+.hourly-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.hourly-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.hour-card {
+  min-width: 120px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  padding: 12px;
+  border-radius: 14px;
+  text-align: center;
+  color: white;
+  font-family: sans-serif;
+}
+.hour-time {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.hour-temp {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 6px 0;
+}
+.hour-wind,
+.hour-pop {
+  font-size: 14px;
+  opacity: 0.8;
+}

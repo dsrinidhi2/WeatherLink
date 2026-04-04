@@ -1,0 +1,4 @@
+.wd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.wd-cell{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:10px;border-radius:10px}
+.wd-label{font-size:12px;color:rgba(255,255,255,0.85)}
+.wd-val{font-weight:800;color:#fff;margin-top:6px}

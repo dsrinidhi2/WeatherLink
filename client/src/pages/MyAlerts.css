@@ -1,0 +1,101 @@
+/* ORIGINAL CODE – UNTOUCHED */
+.myalerts-root {
+  padding: 20px;
+  color: white;
+}
+
+.alerts-list {
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+}
+
+.alerts-list li {
+  background: rgba(255,255,255,0.08);
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alerts-list li.unread {
+  border-left: 4px solid #3b82f6;
+}
+
+.alerts-list li.read {
+  opacity: 0.7;
+}
+
+.actions button {
+  padding: 6px 10px;
+  margin-left: 6px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.actions button:first-child {
+  background: #3b82f6;
+  color: white;
+}
+
+.actions button:last-child {
+  background: #ef4444;
+  color: white;
+}
+
+.btn {
+  padding: 10px 14px;
+  background: #6366f1;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+.muted {
+  opacity: 0.7;
+}
+
+.small {
+  font-size: 13px;
+}
+
+.tiny {
+  font-size: 11px;
+}
+
+/* --------------------------------------------------------- */
+/* ⭐ ADDED: LIGHT MODE SUPPORT (NO REMOVALS) */
+/* --------------------------------------------------------- */
+
+[data-theme="light"] .myalerts-root {
+  color: #111;
+}
+
+[data-theme="light"] .alerts-list li {
+  background: rgba(0,0,0,0.05);
+  border: 1px solid #ddd;
+}
+
+[data-theme="light"] .alerts-list li.unread {
+  border-left-color: #2563eb;
+}
+
+[data-theme="light"] .muted {
+  opacity: 0.55;
+}
+
+[data-theme="light"] .actions button:first-child {
+  background: #2563eb;
+}
+
+[data-theme="light"] .actions button:last-child {
+  background: #dc2626;
+}
+
+[data-theme="light"] .btn {
+  background: #4f46e5;
+}
