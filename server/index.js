@@ -3,10 +3,11 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
-// SOCKET.IO ADDITIONS 🔥🔥
+// SOCKET.IO
 const http = require("http");
 const { Server } = require("socket.io");
 
+// ROUTES
 const authRoutes = require("./routes/auth");
 const weatherRoutes = require("./routes/weather");
 const newsRoutes = require("./routes/news");
@@ -17,13 +18,13 @@ const alertsRoutes = require("./routes/alerts");
 
 const app = express();
 
-// CREATE SERVER FOR SOCKET.IO
+// CREATE SERVER
 const server = http.createServer(app);
 
-// SOCKET.IO SERVER
+// 🔥 SOCKET.IO SETUP
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "*", // ✅ allow all (fixes your issue)
     methods: ["GET", "POST"]
   }
 });
@@ -31,7 +32,7 @@ const io = new Server(server, {
 // MAKE IO GLOBAL
 global._io = io;
 
-// HANDLE CONNECTION
+// SOCKET CONNECTION
 io.on("connection", (socket) => {
   console.log("🔥 User connected:", socket.id);
 
@@ -45,18 +46,21 @@ io.on("connection", (socket) => {
   });
 });
 
+// 🔥 EXPRESS MIDDLEWARE
 app.use(cors({
-  origin: "http://localhost:3000",
+  origin: "*", // ✅ IMPORTANT FIX
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
 
 app.use(express.json());
 
+// 🔥 MONGODB CONNECTION
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("🍃 MongoDB Connected"))
   .catch(err => console.log("❌ DB Error:", err));
 
+// 🔥 ROUTES
 app.use("/api/auth", authRoutes);
 app.use("/api/weather", weatherRoutes);
 app.use("/api/trends", trendsRoutes);
@@ -65,11 +69,15 @@ app.use("/api/user", userRoutes);
 app.use("/api/chat", chatbotRoutes);
 app.use("/api/alerts", alertsRoutes);
 
+// 🔥 TEST ROUTE
 app.get("/", (req, res) => {
-  res.send("WeatherLink API running…");
+  res.send("WeatherLink API running...");
 });
 
+// 🔥 PORT
 const PORT = process.env.PORT || 5000;
 
-// START SERVER (SOCKET + EXPRESS)
-server.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+// START SERVER
+server.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+});
