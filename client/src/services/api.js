@@ -1,10 +1,11 @@
+
 import axios from "axios";
 
 // --------------------------------------------------
 // BASE URL TO BACKEND
 // --------------------------------------------------
 const api = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://weatherlink.onrender.com",
 });
 
 // --------------------------------------------------
