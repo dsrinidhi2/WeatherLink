@@ -7,6 +7,7 @@ const ContactSchema = new Schema({
   relation: { type: String, default: "" }, // e.g. Mom, Dad, Bestie
   city: { type: String, default: "" },
   phone: { type: String, default: "" },
+  email: { type: String, default: "" },
   createdAt: { type: Date, default: Date.now },
 });
 

@@ -1,6 +1,6 @@
 // client/src/components/Chatbot.jsx
 import React, { useState, useEffect, useRef } from "react";
-import axios from "axios";
+import api from "../services/api";
 import "./Chatbot.css";
 
 export default function Chatbot({ city, weather }) {
@@ -23,7 +23,7 @@ export default function Chatbot({ city, weather }) {
     setLoadingReply(true);
 
     try {
-      const res = await axios.post("/api/chat", {
+      const res = await api.post("/api/chat", {
         message: userMsg,
         city,
         weather,

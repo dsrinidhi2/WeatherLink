@@ -12,12 +12,11 @@ import "./CloudCrew.css";
 export default function CloudCrew() {
   const { user } = useContext(AuthContext);
   const [contacts, setContacts] = useState([]);
-  const [form, setForm] = useState({ name: "", relation: "", city: "", phone: "" });
+  const [form, setForm] = useState({ name: "", relation: "", city: "", phone: "", email: "" });
   const [alerts, setAlerts] = useState([]);
   const [creating, setCreating] = useState(false);
 
   useEffect(() => {
-    // define load inside useEffect to please eslint and make it robust
     let cancelled = false;
     async function load() {
       try {
@@ -31,7 +30,7 @@ export default function CloudCrew() {
     }
     load();
     return () => { cancelled = true; };
-  }, []); // no dependencies
+  }, []);
 
   async function handleAddContact(e) {
     e.preventDefault();
@@ -39,7 +38,7 @@ export default function CloudCrew() {
     try {
       const res = await addContact(form);
       setContacts((s) => [res.data.contact, ...s]);
-      setForm({ name: "", relation: "", city: "", phone: "" });
+      setForm({ name: "", relation: "", city: "", phone: "", email: "" });
     } catch (err) {
       console.error(err);
       alert("Failed to add");
@@ -63,8 +62,7 @@ export default function CloudCrew() {
     setCreating(true);
     try {
       await createAlert({ title, body, forCloudCrew: true, exclusive: false });
-      alert("Alert created and sent to CloudCrew (saved).");
-      // reload alerts
+      alert("Alert created and sent to CloudCrew (saved + emailed).");
       const a = await getCloudCrewAlerts();
       setAlerts(a.data.alerts || []);
     } catch (e) {
@@ -87,6 +85,7 @@ export default function CloudCrew() {
             <input placeholder="Relation (Mom, Dad...)" value={form.relation} onChange={(e) => setForm({ ...form, relation: e.target.value })} />
             <input placeholder="City" value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })} />
             <input placeholder="Phone (optional)" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
+            <input placeholder="Email (for alerts)" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
             <button type="submit">Add Contact</button>
           </form>
 
@@ -95,7 +94,9 @@ export default function CloudCrew() {
               <li key={c._id}>
                 <div>
                   <strong>{c.name}</strong> <span className="muted">({c.relation})</span>
-                  <div className="muted small">{c.city}{c.phone ? " • " + c.phone : ""}</div>
+                  <div className="muted small">
+                    {c.city}{c.phone ? " • " + c.phone : ""}{c.email ? " • " + c.email : ""}
+                  </div>
                 </div>
                 <div>
                   <button className="btn-small" onClick={() => handleDelete(c._id)}>Delete</button>

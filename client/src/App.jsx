@@ -31,9 +31,26 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/cloudcrew" element={<CloudCrew />} />
-        <Route path="/my-alerts" element={<MyAlerts />} />
+
         {/* PROTECTED ROUTES */}
+        <Route
+          path="/cloudcrew"
+          element={
+            <ProtectedRoute>
+              <CloudCrew />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/my-alerts"
+          element={
+            <ProtectedRoute>
+              <MyAlerts />
+            </ProtectedRoute>
+          }
+        />
+
         <Route
           path="/dashboard"
           element={

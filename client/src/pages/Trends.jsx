@@ -5,6 +5,7 @@ import {
   AreaChart, Area, BarChart, Bar, CartesianGrid, Legend
 } from "recharts";
 import "./Trends.css";
+import api from "../services/api";
 
 function hourLabel(iso) {
   try {
@@ -40,8 +41,8 @@ export default function Trends() {
         q = `/api/trends?city=${encodeURIComponent(cityName)}`;
       }
 
-      const res = await fetch(q);
-      const json = await res.json();
+      const res = await api.get(q);
+      const json = res.data;
 
       if (!json || !json.success) {
         setData({ error: json?.error || "Failed to load trends" });

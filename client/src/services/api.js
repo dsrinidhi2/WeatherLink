@@ -4,7 +4,7 @@ import axios from "axios";
 // BASE URL TO BACKEND
 // --------------------------------------------------
 const api = axios.create({
-  baseURL: "https://weatherlink.onrender.com",
+  baseURL: "http://localhost:5000",
 });
 
 // --------------------------------------------------
@@ -44,6 +44,12 @@ export const detectCityFromCoords = (lat, lon) =>
   api.get(`/api/weather/geo/${lat}/${lon}`);
 
 // --------------------------------------------------
+// WEATHER TRENDS
+// --------------------------------------------------
+export const fetchWeatherTrends = (city) =>
+  api.get(`/api/trends?city=${encodeURIComponent(city)}`);
+
+// --------------------------------------------------
 // USER FAVOURITES + RECENTS
 // --------------------------------------------------
 export const addFavourite = (city) =>
@@ -58,11 +64,17 @@ export const addRecent = (city) =>
 export const getRecents = () =>
   api.get("/api/user/recents");
 
-// --------------------------------------------------
-// NEWS
-// --------------------------------------------------
-export const fetchNews = () =>
-  api.get("/api/news");
+export const deleteFavourite = (city) =>
+  api.delete(`/api/user/favourites/${encodeURIComponent(city)}`);
+
+export const clearFavourites = () =>
+  api.delete("/api/user/favourites");
+
+export const deleteRecent = (city) =>
+  api.delete(`/api/user/recents/${encodeURIComponent(city)}`);
+
+export const clearRecents = () =>
+  api.delete("/api/user/recents");
 
 // --------------------------------------------------
 // CHATBOT
@@ -71,37 +83,35 @@ export const askChatbot = (message) =>
   api.post("/api/chat", { message });
 
 // --------------------------------------------------
-// WEATHER TRENDS
-// --------------------------------------------------
-export const fetchWeatherTrends = (city) =>
-  api.get(`/api/weather/trends?city=${encodeURIComponent(city)}`);
-// DELETE single favourite
-export const deleteFavourite = (city) =>
-  api.delete(`/api/user/favourites/${encodeURIComponent(city)}`);
-
-// DELETE all favourites
-export const clearFavourites = () =>
-  api.delete("/api/user/favourites");
-
-// DELETE single recent
-export const deleteRecent = (city) =>
-  api.delete(`/api/user/recents/${encodeURIComponent(city)}`);
-
-// DELETE all recents
-export const clearRecents = () =>
-  api.delete("/api/user/recents");
 // CLOUDCREW / ALERTS
+// --------------------------------------------------
 export const getContacts = () => api.get("/api/alerts/contacts");
-export const addContact = (data) => api.post("/api/alerts/contacts", data);
-export const deleteContact = (id) => api.delete(`/api/alerts/contacts/${id}`);
 
-export const createAlert = (data) => api.post("/api/alerts/alerts", data); // data: {title,body,severity,forCloudCrew,recipients,exclusive}
-export const getAlerts = () => api.get("/api/alerts/alerts");
-export const getExclusiveAlerts = () => api.get("/api/alerts/alerts/exclusive");
-export const getCloudCrewAlerts = () => api.get("/api/alerts/alerts/cloudcrew");
-export const markAlertRead = (id, read = true) => api.put(`/api/alerts/alerts/${id}/read`, { read });
-export const deleteAlert = (id) => api.delete(`/api/alerts/alerts/${id}`);
+export const addContact = (data) =>
+  api.post("/api/alerts/contacts", data);
 
-export const getAlertCounts = () => api.get("/api/alerts/counts");
+export const deleteContact = (id) =>
+  api.delete(`/api/alerts/contacts/${id}`);
+
+export const createAlert = (data) =>
+  api.post("/api/alerts/alerts", data);
+
+export const getAlerts = () =>
+  api.get("/api/alerts/alerts");
+
+export const getExclusiveAlerts = () =>
+  api.get("/api/alerts/alerts/exclusive");
+
+export const getCloudCrewAlerts = () =>
+  api.get("/api/alerts/alerts/cloudcrew");
+
+export const markAlertRead = (id, read = true) =>
+  api.put(`/api/alerts/alerts/${id}/read`, { read });
+
+export const deleteAlert = (id) =>
+  api.delete(`/api/alerts/alerts/${id}`);
+
+export const getAlertCounts = () =>
+  api.get("/api/alerts/counts");
 
 export default api;

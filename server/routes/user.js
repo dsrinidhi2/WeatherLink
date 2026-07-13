@@ -75,6 +75,13 @@ router.post("/recents", auth, async (req, res) => {
   try {
     const { name } = req.body;
 
+    // Remove any existing entry for this city (case-insensitive) first
+    await User.updateOne(
+      { _id: req.user.id },
+      { $pull: { recents: { name: { $regex: `^${name}$`, $options: "i" } } } }
+    );
+
+    // Push the fresh entry to the top
     await User.updateOne(
       { _id: req.user.id },
       { $push: { recents: { $each: [{ name }], $position: 0 } } }
@@ -93,7 +100,6 @@ router.post("/recents", auth, async (req, res) => {
     res.status(500).json({ success: false });
   }
 });
-
 /* ---------------------------------------
    GET RECENTS
 --------------------------------------- */

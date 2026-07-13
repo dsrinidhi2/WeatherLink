@@ -3,6 +3,7 @@ const router = express.Router();
 const auth = require("../middleware/auth");
 const Contact = require("../models/Contact");
 const Alert = require("../models/Alert");
+const { sendAlertEmail } = require("../utils/mailer");
 
 // -------------------------
 // CONTACTS
@@ -19,10 +20,10 @@ router.get("/contacts", auth, async (req, res) => {
 
 router.post("/contacts", auth, async (req, res) => {
   try {
-    const { name, relation, city, phone } = req.body;
+    const { name, relation, city, phone, email } = req.body;
     if (!name) return res.status(400).json({ success: false, error: "Name required" });
 
-    const c = new Contact({ user: req.user.id, name, relation, city, phone });
+    const c = new Contact({ user: req.user.id, name, relation, city, phone, email });
     await c.save();
     res.json({ success: true, contact: c });
   } catch (err) {
@@ -61,12 +62,20 @@ router.post("/alerts", auth, async (req, res) => {
 
     await a.save();
 
-    // BROOO — REAL-TIME ALERTS HERE 🔥
+    // REAL-TIME ALERT (in-app)
     if (forCloudCrew) {
       global._io.emit("new-alert", { type: "cloudcrew", alert: a });
     }
     if (exclusive) {
       global._io.to(req.user.id.toString()).emit("new-alert", { type: "exclusive", alert: a });
+    }
+
+    // EMAIL DELIVERY TO CLOUDCREW CONTACTS
+    if (forCloudCrew) {
+      const contacts = await Contact.find({ user: req.user.id, email: { $exists: true, $ne: "" } });
+      for (const contact of contacts) {
+        sendAlertEmail(contact.email, title, body); // fire-and-forget
+      }
     }
 
     res.json({ success: true, alert: a });
