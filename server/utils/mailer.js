@@ -1,21 +1,14 @@
 // server/utils/mailer.js
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 async function sendAlertEmail(toEmail, title, body) {
   try {
-    await transporter.sendMail({
-      from: `"WeatherLink Alerts" <${process.env.EMAIL_USER}>`,
+    await resend.emails.send({
+      from: "WeatherLink Alerts <onboarding@resend.dev>",
       to: toEmail,
       subject: `⛅ WeatherLink Alert: ${title}`,
-      text: body || "You have a new weather alert from WeatherLink.",
       html: `
         <div style="font-family: sans-serif; padding: 16px;">
           <h2>⛅ WeatherLink Alert</h2>
